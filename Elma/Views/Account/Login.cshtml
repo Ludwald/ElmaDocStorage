@@ -1,0 +1,33 @@
+﻿@model Elma.Models.LoginDto
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title DocBox</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container body-content text-center">
+        <h2>Вход</h2>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <p>Username</p>
+            @Html.TextBox("UserName", "")
+            <p>Password</p>
+            @Html.Password("Password", "")
+            <p>Remember Me</p>
+            @Html.CheckBox("RememberMe", "")
+            <p><input type="submit" value="Login" /></p>
+            <font color="red">
+                @Html.ValidationMessage("")
+            </font>
+        }
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
